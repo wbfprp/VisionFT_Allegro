@@ -53,9 +53,7 @@ enum eMotionType
 	eMotionType_ENVELOP,			///< enveloping
 	eMotionType_JOINT_PD,			///< joint pd control
 	eMotionType_MOVE_OBJ,
-	eMotionType_MOVE_JOINT,
 	eMotionType_FINGERTIP_MOVING,
-	eMotionType_FINGERTIP_MOVING_SIMPLE,
 	NUMBER_OF_MOTION_TYPE
 };
 
@@ -77,7 +75,6 @@ enum eHandType
 class BHANDEXPORT BHand
 {
 public:
-	bool isFSSent;
 	BHand(eHandType ht);
 	~BHand(void);
 
@@ -192,7 +189,6 @@ public:
 
 
 private:
-	
 	BHand();
 	void SetGains(int motionType);
 	void SolveFK();
@@ -205,7 +201,7 @@ private:
 	void CalculateGravityEx();
 	//void CalculateGravityLeft();
 	//void CalculateGravityRight();
-	void Move_Joint();
+
 	void Motion_HomePosition();
 	void Motion_Ready();
 	void Motion_GravityComp();
@@ -217,12 +213,10 @@ private:
 	void Motion_PinchMT();
 	void Motion_ObjectMoving();
 	void Motion_FingertipMoving();
-	void Motion_FingertipMoving_Simple();
 	void Motion_Envelop();
 	void Motion_JointPD();
 
 private:
-	
 	double _dT;							///< control time step (second)
 	double _curT;
 	

@@ -43,6 +43,24 @@ double q[MAX_DOF];
 double q_des[MAX_DOF];
 double tau_des[MAX_DOF];
 double cur_des[MAX_DOF];
+double q_pinch[MAX_DOF] = { -0.131458211	,
+0.607406172	,
+1.006130199	,
+0.862245148	,
+-0.080064353	,
+0.234334691	,
+0.892957195	,
+0.498937614	,
+-0.065418435	,
+0.359313193	,
+0.608116277	,
+0.452780781	,
+1.034623168	,
+0.604654514	,
+0.332240436	,
+1.367396182
+};
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Hand parameters
@@ -127,9 +145,9 @@ static unsigned int __stdcall ioThreadProc(void* inst)
 				if (data_return == (0x01 | 0x02 | 0x04 | 0x08))
 				{
 					// convert encoder count to joint angle
-					for (i = 0; i<MAX_DOF; i++)
+					for (i = 0; i < MAX_DOF; i++)
 					{
-						q[i] = (double)(vars.enc_actual[i])*(333.3 / 65536.0)*(3.141592 / 180.0);
+						q[i] = (double)(vars.enc_actual[i]) * (333.3 / 65536.0) * (3.141592 / 180.0);
 					}
 
 					// print joint angles
@@ -143,7 +161,7 @@ static unsigned int __stdcall ioThreadProc(void* inst)
 					ComputeTorque();
 
 					// convert desired torque to desired current and PWM count
-					for (int i = 0; i<MAX_DOF; i++)
+					for (int i = 0; i < MAX_DOF; i++)
 					{
 						cur_des[i] = tau_des[i];
 						if (cur_des[i] > 1.0) cur_des[i] = 1.0;
@@ -151,7 +169,7 @@ static unsigned int __stdcall ioThreadProc(void* inst)
 					}
 
 					// send torques
-					for (int i = 0; i<4; i++)
+					for (int i = 0; i < 4; i++)
 					{
 						vars.pwm_demand[i * 4 + 0] = (short)(cur_des[i * 4 + 0] * tau_cov_const_v4);
 						vars.pwm_demand[i * 4 + 1] = (short)(cur_des[i * 4 + 1] * tau_cov_const_v4);
@@ -204,6 +222,7 @@ static unsigned int __stdcall ioThreadProc(void* inst)
 void MainLoop()
 {
 	bool bRun = true;
+	static bool dir = true;
 	int i;
 
 	while (bRun)
@@ -249,7 +268,7 @@ void MainLoop()
 					break;
 				}
 				pSHM->cmd.command = CMD_NULL;
-				for (i=0; i<MAX_DOF; i++)
+				for (i = 0; i < MAX_DOF; i++)
 				{
 					pSHM->state.slave_state[i].position = q[i];
 					pSHM->cmd.slave_command[i].torque = tau_des[i];
@@ -266,15 +285,15 @@ void MainLoop()
 				if (pBHand) pBHand->SetMotionType(eMotionType_NONE);
 				bRun = false;
 				break;
-			
+
 			case 'h':
 				if (pBHand) pBHand->SetMotionType(eMotionType_HOME);
 				break;
-			
+
 			case 'r':
 				if (pBHand) pBHand->SetMotionType(eMotionType_READY);
 				break;
-			
+
 			case 'g':
 				if (pBHand) pBHand->SetMotionType(eMotionType_GRASP_3);
 				break;
@@ -282,15 +301,33 @@ void MainLoop()
 			case 'k':
 				if (pBHand) pBHand->SetMotionType(eMotionType_GRASP_4);
 				break;
-			
+
 			case 'p':
 				if (pBHand) pBHand->SetMotionType(eMotionType_PINCH_IT);
 				break;
-			
+
+			case 't':
+				if (pBHand) {
+					/*	pBHand->isFSSent = false;
+						pBHand->SetMotionType(eMotionType_PINCH_IT);*/
+					memcpy(q_des, q_pinch, sizeof(q_des));
+					q_des[0] -= 1 * DEG2RAD;
+					q_des[15] += 5 * DEG2RAD;
+					if (dir) {
+						q_des[0] += 10 * DEG2RAD;
+					}
+					else {
+						q_des[0] -= 8 * DEG2RAD;
+					}
+					dir = !dir;
+					pBHand->SetMotionType(eMotionType_JOINT_PD);
+				}
+				break;
+
 			case 'm':
 				if (pBHand) pBHand->SetMotionType(eMotionType_PINCH_MT);
 				break;
-			
+
 			case 'a':
 				if (pBHand) pBHand->SetMotionType(eMotionType_GRAVITY_COMP);
 				break;
@@ -347,7 +384,7 @@ void ComputeTorque()
 bool OpenCAN()
 {
 	int ret;
-	
+
 #if defined(PEAKCAN)
 	CAN_Ch = GetCANChannelIndex(_T("USBBUS1"));
 #elif defined(IXXATCAN)
@@ -362,7 +399,7 @@ bool OpenCAN()
 
 	printf(">CAN(%d): open\n", CAN_Ch);
 	ret = command_can_open(CAN_Ch);
-	if(ret < 0)
+	if (ret < 0)
 	{
 		printf("ERROR command_canopen !!! \n");
 		return false;
@@ -375,7 +412,7 @@ bool OpenCAN()
 	ioThreadRun = true;
 	ioThread = _beginthreadex(NULL, 0, ioThreadProc, NULL, 0, NULL);
 	printf(">CAN: starts listening CAN frames\n");
-	
+
 	// query h/w information
 	printf(">CAN: query system information\n");
 	ret = request_hand_information(CAN_Ch);
@@ -426,7 +463,7 @@ void CloseCAN()
 
 	printf(">CAN: stop periodic communication\n");
 	ret = command_set_period(CAN_Ch, 0);
-	if(ret < 0)
+	if (ret < 0)
 	{
 		printf("ERROR command_can_stop !!! \n");
 	}
@@ -442,7 +479,7 @@ void CloseCAN()
 
 	printf(">CAN(%d): close\n", CAN_Ch);
 	ret = command_can_close(CAN_Ch);
-	if(ret < 0) printf("ERROR command_can_close !!! \n");
+	if (ret < 0) printf("ERROR command_can_close !!! \n");
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -576,7 +613,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	curTime = 0.0;
 
 	pSHM = getrPanelManipulatorCmdMemory();
-	
+
 	if (CreateBHandAlgorithm() && OpenCAN())
 		MainLoop();
 
