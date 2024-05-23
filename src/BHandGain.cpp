@@ -151,21 +151,21 @@ void BHand::SetGains(int motionType)
 
 			// ALLEGRO HAND 3.0
 			// Finger 1,2 ,3 (2014 01 11)
-			_kp[0][0] = _kp[1][0] = _kp[2][0] = 500; //500 40
+			_kp[0][0] = _kp[1][0] = _kp[2][0] = 650; //500 40
 			_kp[0][1] = _kp[1][1] = _kp[2][1] = 800;
 			_kp[0][2] = _kp[1][2] = _kp[2][2] = 900;
 			_kp[0][3] = _kp[1][3] = _kp[2][3] = 500;
-			_kd[0][0] = _kd[1][0] = _kd[2][0] = 25;   // this finger has really low friction at the first joint on BR014
+			_kd[0][0] = _kd[1][0] = _kd[2][0] = 30;   // this finger has really low friction at the first joint on BR014
 			_kd[0][1] = _kd[1][1] = _kd[2][1] = 50;   // make sure these values look good on all hands. likely change them 
 			_kd[0][2] = _kd[1][2] = _kd[2][2] = 55;   // the to match the ones below.
 			_kd[0][3] = _kd[1][3] = _kd[2][3] = 40;
 
 			// Finger 4
-			_kp[3][0] = 1000;
+			_kp[3][0] = 2000;
 			_kp[3][1] = 700;
 			_kp[3][2] = 600;
 			_kp[3][3] = 600;
-			_kd[3][0] = 50;
+			_kd[3][0] = 100;
 			_kd[3][1] = 50;
 			_kd[3][2] = 50;
 			_kd[3][3] = 40;

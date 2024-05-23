@@ -811,7 +811,7 @@ void BHand::Motion_PinchIT()
 	float center_x_geo, center_y_geo, center_z_geo;
 
 	
-	float pinchOffset_z = 0.07;
+	float pinchOffset_z = 0.055;
 
 	alpha[0] = _f_des[0];
 

@@ -43,10 +43,10 @@ double q[MAX_DOF];
 double q_des[MAX_DOF];
 double tau_des[MAX_DOF];
 double cur_des[MAX_DOF];
-double q_pinch[MAX_DOF] = { -0.131458211	,
-0.607406172	,
-1.006130199	,
-0.862245148	,
+double q_pinch[MAX_DOF] = { 0.051458211	,
+0.657406172	,
+1.046130199	,
+1.162245148	,
 -0.080064353	,
 0.234334691	,
 0.892957195	,
@@ -55,10 +55,10 @@ double q_pinch[MAX_DOF] = { -0.131458211	,
 0.359313193	,
 0.608116277	,
 0.452780781	,
-1.034623168	,
-0.604654514	,
-0.332240436	,
-1.367396182
+1.234623168	,
+0.004654514	,
+-0.102240436	,
+1.507396182
 };
 
 
@@ -332,9 +332,9 @@ void MainLoop()
 				if (pBHand) pBHand->SetMotionType(eMotionType_GRAVITY_COMP);
 				break;
 
-			case 'e':
+			/*case 'e':
 				if (pBHand) pBHand->SetMotionType(eMotionType_ENVELOP);
-				break;
+				break;*/
 
 			case 'f':
 				if (pBHand) pBHand->SetMotionType(eMotionType_NONE);
