@@ -73,6 +73,12 @@ const short pwm_max_DC24V = 500;
 #include "RockScissorsPaper.h"
 
 /////////////////////////////////////////////////////////////////////////////////////////
+// VisionFT demo motions - by HSH
+const double Q0_SWING = 9.0;
+const int Q0_STEP_NUM = 100;
+# define M_PI           3.14159265358979323846 
+
+/////////////////////////////////////////////////////////////////////////////////////////
 // functions declarations
 void PrintInstruction();
 void MainLoop();
@@ -223,6 +229,8 @@ void MainLoop()
 {
 	bool bRun = true;
 	static bool dir = true;
+	static int step = Q0_STEP_NUM / 2;
+	static double sinVal;
 	int i;
 
 	while (bRun)
@@ -311,15 +319,23 @@ void MainLoop()
 					/*	pBHand->isFSSent = false;
 						pBHand->SetMotionType(eMotionType_PINCH_IT);*/
 					memcpy(q_des, q_pinch, sizeof(q_des));
-					q_des[0] -= 1 * DEG2RAD;
 					q_des[15] += 5 * DEG2RAD;
+					/*q_des[0] -= 1 * DEG2RAD;
 					if (dir) {
 						q_des[0] += 10 * DEG2RAD;
 					}
 					else {
 						q_des[0] -= 8 * DEG2RAD;
 					}
-					dir = !dir;
+					dir = !dir;*/
+					sinVal = sin((2 * M_PI * step++) / Q0_STEP_NUM);
+					q_des[0] = q_pinch[0] + Q0_SWING * sinVal * DEG2RAD;
+
+					printf("sinval: %.2f \n", sinVal);
+
+					if (step >= Q0_STEP_NUM) {
+						step = 0;
+					}
 					pBHand->SetMotionType(eMotionType_JOINT_PD);
 				}
 				break;

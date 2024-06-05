@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\src\\BHand.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|solutionrelative:src\\BHand.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\myAllegroHand.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|solutionrelative:myAllegroHand.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\src\\BHandGain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|solutionrelative:src\\BHandGain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\include\\BHand\\BHandDef.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|solutionrelative:include\\BHand\\BHandDef.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\src\\BHand.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|solutionrelative:src\\BHand.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\include\\BHand\\BHand.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|solutionrelative:include\\BHand\\BHand.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\include\\BHand\\BHandDef.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1EA8B366-194E-411B-A872-5DE961E92066}|myAllegroHand.vcxproj|solutionrelative:include\\BHand\\BHandDef.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,25 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BHand.cpp",
               "DocumentMoniker": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\src\\BHand.cpp",
               "RelativeDocumentMoniker": "src\\BHand.cpp",
               "ToolTip": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\src\\BHand.cpp",
               "RelativeToolTip": "src\\BHand.cpp",
-              "ViewState": "AQIAAJYEAAAAAAAAAAAiwKIEAABzAAAA",
+              "ViewState": "AQIAAAkBAAAAAAAAAAAAAP4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-18T21:20:52.176Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "BHand.h",
               "DocumentMoniker": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\include\\BHand\\BHand.h",
               "RelativeDocumentMoniker": "include\\BHand\\BHand.h",
@@ -57,18 +52,17 @@
               "ViewState": "AQIAAEsAAAAAAAAAAAAqwCcBAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-18T21:41:14.717Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "BHandGain.cpp",
               "DocumentMoniker": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\src\\BHandGain.cpp",
               "RelativeDocumentMoniker": "src\\BHandGain.cpp",
               "ToolTip": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\src\\BHandGain.cpp",
               "RelativeToolTip": "src\\BHandGain.cpp",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAAAJkAAAApAAAA",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAwwJUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-18T22:21:43.843Z",
               "IsPinned": true,
@@ -84,21 +78,7 @@
               "RelativeToolTip": "include\\BHand\\BHandDef.h",
               "ViewState": "AQIAAAEAAAAAAAAAAAAAAAQAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-17T01:45:32.787Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "myAllegroHand.cpp",
-              "DocumentMoniker": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\myAllegroHand.cpp",
-              "RelativeDocumentMoniker": "myAllegroHand.cpp",
-              "ToolTip": "C:\\Users\\wbfpr\\OneDrive - Stanford\\BDML\\Git\\Allegro\\myAllegroHand.cpp",
-              "RelativeToolTip": "myAllegroHand.cpp",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAAAEIAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-17T01:29:32.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-17T01:45:32.787Z"
             }
           ]
         }
